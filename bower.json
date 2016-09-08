@@ -1,0 +1,28 @@
+{
+  "name": "open-source-presentation",
+  "authors": [
+    "Lucas Theisen"
+  ],
+  "description": "The Importance of Open Source",
+  "main": "dist/index.html",
+  "license": "Apache-2.0",
+  "homepage": "",
+  "dependencies": {
+    "reveal.js": "~3.3.0"
+  },
+  "devDependencies": {
+  },
+  "overrides": {
+    "reveal.js": {
+      "main": [
+        "css/**/*.css",
+        "lib/**/*",
+        "js/reveal.js",
+        "plugin/**/*.js"
+      ]
+    },
+    "headjs": {
+      "main": []
+    }
+  }
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- bower:css --><!-- endbower -->
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- inject:slides:html -->
+        <!-- endinject -->
+      </div>
+    </div>
+
+    <!-- bower:js --><!-- endbower -->
+
+    <script>
+      Reveal.initialize({
+      dependencies: [
+          { 
+              src: 'bower_components/reveal.js/lib/js/classList.js', 
+              condition: function() { return !document.body.classList; } 
+          },
+          { 
+              src: 'bower_components/reveal.js/plugin/highlight/highlight.js', 
+              async: true, 
+              callback: function() { hljs.initHighlightingOnLoad(); } 
+          },
+      ]
+      });
+    </script>
+
+    <!-- inject:currentslide:html -->
+    <!-- endinject -->
+  </body>
+</html>

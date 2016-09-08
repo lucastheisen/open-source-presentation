@@ -1,0 +1,32 @@
+{
+  "dependencies": {
+  },
+  "devDependencies": {
+    "bower": "~1.7.9",
+    "browser-sync": "~2.15.0",
+    "gulp": "~3.9.1",
+    "gulp-debug": "^2.1.2",
+    "gulp-file": "^0.3.0",
+    "gulp-inject": "^4.1.0",
+    "gulp-watch": "~4.3.9",
+    "main-bower-files": "^2.9.0",
+    "marked": "^0.3.6",
+    "rimraf": "~2.5.4",
+    "wiredep": "~4.0.0"
+  },
+  "description": "The Importance of Open Source",
+  "license": "Apache-2.0",
+  "name": "open-source-presentation",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lucastheisen/open-source-presentation.git"
+  },
+  "scripts": {
+    "build": "gulp",
+    "clean": "rimraf node_modules bower_components dist/*",
+    "prebuild": "npm install && bower install && rimraf dist/*",
+    "server": "gulp server",
+    "watch": "gulp watch"
+  },
+  "version": "0.0.1"
+}
