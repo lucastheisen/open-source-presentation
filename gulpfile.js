@@ -12,6 +12,25 @@ const watch = require('gulp-watch');
 const wiredep = require('wiredep').stream;
 
 var currentSlide;
+const slides = [
+    'appology.html',
+    'bio.html',
+    'why-use.html',
+    'reinvent.html',
+    'better-support.html',
+    'unbeatable-price.html',
+    'why-contribute.html',
+    'for-me.html',
+    'for-my-company.html',
+    'how.html',
+    'why-apache.html',
+    'apache-way.html',
+    'apache-license.html',
+    'apache-foundation.html',
+    'apache-projects.html',
+    'apache-projects-you-dont-know.html',
+    'questions.html'
+];
 
 const buildDir = function(...parts) {
     return path.posix.join('dist', 
@@ -56,7 +75,7 @@ gulp.task('copy-index', function() {
                 }
             }))
         .pipe(inject(
-            gulp.src(sourceDir('slides', '*')), 
+            gulp.src(slides.map((slide) => sourceDir('slides', slide))), 
             {
                 starttag: '<!-- inject:slides:html -->',
                 transform: function (filePath, file) {
@@ -68,10 +87,10 @@ gulp.task('copy-index', function() {
                         '</section>';
                 }
             }));
-    if (typeof currentSlide !== 'undefined' && currentSlide !== null) {
+    if (currentSlide) {
         stream = stream.pipe(inject(
             file('currentslide.html', 
-                '<script>Reveal.slide(' + currentSlide + ');</script>',
+                '<script>Reveal.slide(' + (slides.indexOf(currentSlide)) + ');</script>',
                 {src: true}),
             {
                 starttag: '<!-- inject:currentslide:html -->',
@@ -113,7 +132,7 @@ gulp.task('server', ['copy-app'], function() {
         function(file) {
             console.log('[' + file.path + '] was ' + file.event + ', updating...');
             if (path.dirname(file.path).endsWith('slides')) {
-                currentSlide = path.basename(file.path).split('.')[0];
+                currentSlide = path.basename(file.path);
                 console.log('set currentSlide=[' + currentSlide + ']');
             }
 
