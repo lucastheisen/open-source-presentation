@@ -13,7 +13,7 @@ const wiredep = require('wiredep').stream;
 
 var currentSlide;
 const slides = [
-    'appology.html',
+    'apology.html',
     'bio.html',
     'why-use.html',
     'reinvent.html',
